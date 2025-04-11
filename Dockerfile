@@ -20,9 +20,9 @@ RUN git clone -b jellyfin-mpp --depth=1 https://github.com/nyanmisaka/mpp.git rk
     make -j$(nproc) && make install
 
 ### Clone and build RGA (Raster Graphic Acceleration)
-mkdir -p ~/dev && cd ~/dev
-git clone -b jellyfin-rga --depth=1 https://github.com/nyanmisaka/rk-mirrors.git rkrga
-meson setup rkrga rkrga_build \
+RUN mkdir -p ~/dev && cd ~/dev
+RUN git clone -b jellyfin-rga --depth=1 https://github.com/nyanmisaka/rk-mirrors.git rkrga
+RUN meson setup rkrga rkrga_build \
     --prefix=/usr \
     --libdir=lib \
     --buildtype=release \
@@ -30,8 +30,8 @@ meson setup rkrga rkrga_build \
     -Dcpp_args=-fpermissive \
     -Dlibdrm=false \
     -Dlibrga_demo=false
-meson configure rkrga_build
-ninja -C rkrga_build install
+RUN meson configure rkrga_build
+RUN ninja -C rkrga_build install
 
 ### Clone and build Rockchip-optimized FFmpeg
 RUN git clone --depth=1 https://github.com/nyanmisaka/ffmpeg-rockchip.git ffmpeg && \
