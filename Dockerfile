@@ -20,7 +20,6 @@ RUN git clone -b jellyfin-mpp --depth=1 https://github.com/nyanmisaka/mpp.git rk
     make -j$(nproc) && make install
 
 ### Clone and build RGA (Raster Graphic Acceleration)
-RUN mkdir -p ~/dev && cd ~/dev
 RUN git clone -b jellyfin-rga --depth=1 https://github.com/nyanmisaka/rk-mirrors.git rkrga
 RUN meson setup rkrga rkrga_build \
     --prefix=/usr \
