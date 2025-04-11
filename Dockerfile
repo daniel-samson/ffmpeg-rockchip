@@ -42,7 +42,6 @@ RUN git clone --depth=1 https://github.com/nyanmisaka/ffmpeg-rockchip.git ffmpeg
         --enable-libdrm \
         --enable-rkmpp \
         --enable-rkrga \
-        --enable-v4l2-request \
         --enable-libx264 \
         --enable-nonfree \
         --enable-shared \
