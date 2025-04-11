@@ -44,7 +44,6 @@ RUN git clone --depth=1 https://github.com/nyanmisaka/ffmpeg-rockchip.git ffmpeg
     && make -j$(nproc) && make install
 
 # Clean up build dependencies if desired (optional)
-# RUN apt-get remove --purge -y build-essential cmake ...
 RUN apt-get autoremove -y && apt-get clean
 
 # Show ffmpeg version
