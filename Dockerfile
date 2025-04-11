@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     autoconf automake build-essential cmake libtool pkg-config \
     yasm nasm git curl wget unzip libdrm-dev libx264-dev \
-    libfdk-aac-dev libjpeg-dev zlib1g-dev \
+    libjpeg-dev zlib1g-dev \
     ca-certificates sudo nano vim \
     && apt-get clean
 
@@ -36,7 +36,6 @@ RUN git clone --depth=1 https://github.com/nyanmisaka/ffmpeg-rockchip.git ffmpeg
         --enable-rkrga \
         --enable-v4l2-request \
         --enable-libx264 \
-        --enable-libfdk_aac \
         --enable-nonfree \
         --enable-shared \
         --disable-static \
