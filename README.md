@@ -15,3 +15,30 @@ if you do not have a singe board computer with a rockchip SoC, then it is probab
 | **Performance (ROCK 5)**   | ❗ Often **lower** / fallback to CPU | ✅ Best possible (full VPU offload)              |
 
 
+
+## Usage
+
+### Install from the command line
+
+```sh
+docker pull ghcr.io/daniel-samson/ffmpeg-rockchip:main
+```
+
+Yuo can run it
+```sh
+docker run --rm \
+  --device /dev/mpp_service \
+  --device /dev/rga \
+  --device /dev/video0 \
+  -v $(pwd):/videos \
+  rockchip-ffmpeg \
+  ffmpeg -hwaccel rkmpp -i /videos/input.mp4 -c:v h264_rkmpp -b:v 4M /videos/output.mp4
+```
+
+### Use as base image in Dockerfile:
+
+```Dockerfile
+FROM ghcr.io/daniel-samson/ffmpeg-rockchip:main
+
+CMD ["ffmpeg", "-version"]
+```
